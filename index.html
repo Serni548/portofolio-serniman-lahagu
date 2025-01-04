@@ -220,8 +220,16 @@
                         </div>
 
                         <div class="clearfix"></div>
+                        <div class="filter-buttons text-center mb-4">
+                            <button class="btn btn-primary filter-btn" data-category="all">All</button>
+                            <button class="btn btn-primary filter-btn" data-category="Form Login">Form Login</button>
+                            <button class="btn btn-primary filter-btn" data-category="Kalkulator">Kalkulator</button>
+                            <button class="btn btn-primary filter-btn" data-category="Portfolio">Portfolio</button>
+                            <button class="btn btn-primary filter-btn" data-category="Tetris Game">Tetris Game</button>
+                            <button class="btn btn-primary filter-btn" data-category="Dasboard Penjualan Tahunan">Dashboard Penjualan Tahunan</button>
+                        </div>
 
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="Form Login">
                             <div class="projects-thumb">
                                 <a href="./Form Login/index.html" target="_blank">
                                 <div class="projects-info">
@@ -232,7 +240,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="Kalkulator">
                             <div class="projects-thumb">
                                 <a href="./Kalkulator/index.html"target="_blank"> 
                                 <div class="projects-info">
@@ -243,7 +251,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="Portfolio">
                             <div class="projects-thumb">
                                 <a href="https://serni548.github.io/portofolio-serniman-lahagu/"target="_blank">
                                 <div class="projects-info">
@@ -254,7 +262,7 @@
                             </div>
                         </div> 
 
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="Game">
                             <div class="projects-thumb">
                                 <a href="./game tetris/index.html"target="_blank">
                                 <div class="projects-info">
@@ -265,7 +273,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="Dasboard penjualan Tahunan">
                             <div class="projects-thumb">
                                 <a href="./chart dashboard penjualan tahunan/index.html"target="_blank">
                                 <div class="projects-info">
@@ -514,6 +522,27 @@
         <script src="js/jquery.magnific-popup.min.js"></script>
         <script src="js/magnific-popup-options.js"></script>
         <script src="js/custom.js"></script>
-
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                const projectItems = document.querySelectorAll('.project-item');
+        
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const category = button.getAttribute('data-category');
+        
+                        projectItems.forEach(item => {
+                            const itemCategory = item.getAttribute('data-category');
+        
+                            if (category === 'all' || itemCategory === category) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
